@@ -76,4 +76,18 @@ public class BoardTest {
         assertTrue(board.move(Player.X, 1, 1));
         assertTrue(board.move(Player.O, 0, 1));
     }
+
+    @Test
+    public void shouldReturnThePlayerWhoHasWon() {
+
+        Board board = new Board();
+
+        board.move(Player.O, 2, 1);
+        board.move(Player.X, 0, 1);
+        board.move(Player.O, 2, 0);
+        board.move(Player.X, 1, 1);
+        board.move(Player.O, 2, 2);
+
+        assertTrue(board.whoWon());
+    }
 }

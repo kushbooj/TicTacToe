@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.List;
+
 public class Board {
     private Player[][] cells = new Player[3][3];
     private Player lastPlayedPlayer;
@@ -21,10 +23,6 @@ public class Board {
             return false;
     }
 
-    private boolean isCellUnoccupied(Player player) {
-        return player == null;
-    }
-
     public Player playerAt(int x, int y) {
         if (isWithinBounds(x, y)) {
             return cells[x][y];
@@ -32,7 +30,15 @@ public class Board {
             throw new IllegalArgumentException();
     }
 
+    private boolean isCellUnoccupied(Player player) {
+        return player == null;
+    }
+
     private boolean isWithinBounds(int x, int y) {
         return x >= 0 && x < 3 && y >= 0 && y < 3;
+    }
+
+    public boolean whoWon() {
+        return false;
     }
 }
